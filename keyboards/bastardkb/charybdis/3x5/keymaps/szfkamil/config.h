@@ -16,6 +16,12 @@
  */
 #pragma once
 
+/* Trackball angle adjustment. */
+// Undefine the default sensor rotation angle from the core keyboard config
+#undef ROTATIONAL_TRANSFORM_ANGLE
+// Define your custom orientation angle (e.g., 5 degrees)
+#define ROTATIONAL_TRANSFORM_ANGLE 5
+
 #ifdef VIA_ENABLE
 /* VIA configuration. */
 #    define DYNAMIC_KEYMAP_LAYER_COUNT 7
