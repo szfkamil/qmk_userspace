@@ -253,3 +253,33 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // rgb_matrix.c.
 void rgb_matrix_update_pwm_buffers(void);
 #endif
+
+
+// Tapping term per-key configuration (turned off because I am trying out PERMISSIVE_HOLD first
+/*uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case RALT_T(KC_I):
+            return 120;      // Super fast 120ms timeout specifically for AltGr
+        default:
+            return TAPPING_TERM; // Use global TAPPING_TERM for everything else
+    }
+    }
+*/
+void keyboard_post_init_user(void) {
+
+    // combining both options lead to sniping mode being enabled all the time
+
+    // Turns on the mouse layer automatically when moving the trackball
+    //bkpd_set_auto_mouse_layer_enabled(true);
+
+    // Turns on sniping mode automatically when mouse layer is enabled
+    //bkpd_set_auto_precision_on_mouse_layer_enabled(true);
+
+
+}
+
+// Argos relies on via so disabling it in rules.mk does not work.
+// BOOTMAGIC causes issues with auto mouse layer issues (microcontroller enters bootloader mode ad-hod if enabled
+void bootmagic_scan(void) {
+// Force disable bootmagic by overwriting the function with an empty body.
+}
