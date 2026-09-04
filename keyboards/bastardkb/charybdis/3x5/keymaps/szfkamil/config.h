@@ -45,3 +45,15 @@
 #define TAPPING_TERM 300
 #define TAPPING_TERM_PER_KEY
 #define DYNAMIC_TAPPING_TERM_INCREMENT 10
+#define PERMISSIVE_HOLD
+
+/*RGB*/
+#define LED_DPI_INDICATOR_INDEX 0
+/* Bypass bug in bstiq beta */
+#define RGBLIGHT_LED_COUNT RGB_MATRIX_LED_COUNT
+
+// Indicate the mouse layer
+#undef AUTO_MOUSE_DEFAULT_LAYER
+#define AUTO_MOUSE_DEFAULT_LAYER 4
+
+#define BK_POINTING_DEVICE_DRAGSCROLL_REVERSE_Y // inverts vertical scrolling
