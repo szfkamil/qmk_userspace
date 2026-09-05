@@ -269,10 +269,10 @@ void keyboard_post_init_user(void) {
     // combining both options lead to sniping mode being enabled all the time
 
     // Turns on the mouse layer automatically when moving the trackball
-    //bkpd_set_auto_mouse_layer_enabled(true);
+    bkpd_set_auto_mouse_layer_enabled(false);
 
     // Turns on sniping mode automatically when mouse layer is enabled
-    //bkpd_set_auto_precision_on_mouse_layer_enabled(true);
+    bkpd_set_auto_precision_on_mouse_layer_enabled(false);
 
 
 }
