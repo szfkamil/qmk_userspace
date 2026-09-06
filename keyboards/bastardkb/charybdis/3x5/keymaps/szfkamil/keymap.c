@@ -276,9 +276,11 @@ void keyboard_post_init_user(void) {
 
 
 }
-
 // Argos relies on via so disabling it in rules.mk does not work.
-// BOOTMAGIC causes issues with auto mouse layer issues (microcontroller enters bootloader mode ad-hod if enabled
+// BOOTMAGIC causes issues with auto mouse layer (microcontroller enters bootloader mode ad-hod if enabled
+// Comment out this void if you want to disable bootmagic
+/*
 void bootmagic_scan(void) {
 // Force disable bootmagic by overwriting the function with an empty body.
 }
+*/
