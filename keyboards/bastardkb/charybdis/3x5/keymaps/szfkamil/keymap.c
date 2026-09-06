@@ -69,8 +69,8 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
-#define ______________HOME_ROW_GASC_L______________ KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, XXXXXXX
-#define ______________HOME_ROW_GASC_R______________ XXXXXXX, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI
+#define ______________HOME_ROW_GASC_L______________ KC_LGUI, KC_LALT, KC_LSFT, KC_LCTL, KC_HYPR
+#define ______________HOME_ROW_GASC_R______________ KC_MEH, KC_LCTL, KC_LSFT, KC_LALT, KC_LGUI
 /*
  * Layers used on the Charybdis Nano.
  *
@@ -169,8 +169,8 @@ static uint16_t auto_pointer_layer_timer = 0;
     ...)                                                               \
              L00,         L01,         L02,         L03,         L04,  \
              R05,         R06,         R07,         R08,         R09,  \
-      LGUI_T(L10), LALT_T(L11), LSFT_T(L12), LCTL_T(L13),        L14,  \
-             R15,  RCTL_T(R16), RSFT_T(R17), LALT_T(R18), RGUI_T(R19), \
+      LGUI_T(L10), LALT_T(L11), LSFT_T(L12), LCTL_T(L13), HYPR_T(L14),  \
+             MEH_T(R15), RCTL_T(R16), RSFT_T(R17), LALT_T(R18), RGUI_T(R19), \
       __VA_ARGS__
 #define HOME_ROW_MOD_GASC(...) _HOME_ROW_MOD_GASC(__VA_ARGS__)
 
