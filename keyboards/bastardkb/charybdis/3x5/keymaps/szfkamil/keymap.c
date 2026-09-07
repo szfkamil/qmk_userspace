@@ -47,7 +47,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 
 #define ESC_FUN LT(LAYER_FUNCTION, KC_ESC)
 #define SPC_NAV LT(LAYER_NAVIGATION, KC_SPC)
-#define TAB_MED LT(LAYER_MEDIA, KC_TAB)
+#define ALT_GR_MED LT(LAYER_MEDIA, KC_RALT)
 #define ENT_SYM LT(LAYER_SYMBOLS, KC_ENT)
 #define BSP_NUM LT(LAYER_NUMERAL, KC_BSPC)
 #define _L_PTR(KC) LT(LAYER_POINTER, KC)
@@ -65,7 +65,7 @@ static uint16_t auto_pointer_layer_timer = 0;
        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, \
        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I, KC_O, \
        KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,    KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH, \
-                      ESC_FUN, SPC_NAV, TAB_MED, ENT_SYM, BSP_NUM
+                      ESC_FUN, SPC_NAV, ALT_GR_MED, ENT_SYM, BSP_NUM
 
 /** Convenience row shorthands. */
 #define _______________DEAD_HALF_ROW_______________ XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -284,3 +284,22 @@ void bootmagic_scan(void) {
 // Force disable bootmagic by overwriting the function with an empty body.
 }
 */
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        // Intercept your left thumb Media/AltGr key
+        case ALT_GR_MED:
+            if (record->tap.count == 1) {
+                if (record->event.pressed) {
+                    // Tap once: Trigger a clean, sticky One-Shot AltGr (AltGr stays primed for next key)
+                    add_oneshot_mods(MOD_BIT(KC_RALT));
+                }
+                return false; // Prevent QMK from registering a normal RALT tap/release
+            } else if (record->tap.count == 2 && record->event.pressed) {
+                // Double Tap: Instantly clear/cancel the One-Shot AltGr if you tapped it by mistake
+                del_oneshot_mods(MOD_BIT(KC_RALT));
+                return true;
+            }
+            break;
+    }
+    return true; // Let QMK handle all other keycodes normally
+}
