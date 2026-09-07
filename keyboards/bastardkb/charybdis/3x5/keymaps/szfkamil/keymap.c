@@ -20,6 +20,23 @@
 #    include "timer.h"
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
+// ==========================================
+// PLACE YOUR COMBOS HERE
+// Reference: https://docs.qmk.fm/features/combo#combos
+// ==========================================
+enum combos {
+    CMB_TAB
+};
+
+const uint16_t PROGMEM tab_combo[] = {KC_Q, KC_W, COMBO_END};
+
+combo_t key_combos[] = {
+    [CMB_TAB] = COMBO(tab_combo, KC_TAB)
+};
+// ==========================================
+
+// Your layer definitions
+
 enum charybdis_keymap_layers {
     LAYER_BASE = 0,
     LAYER_FUNCTION,
@@ -29,6 +46,8 @@ enum charybdis_keymap_layers {
     LAYER_NUMERAL,
     LAYER_SYMBOLS,
 };
+
+
 
 // Automatically enable sniping-mode on the pointer layer.
 #define CHARYBDIS_AUTO_SNIPING_ON_LAYER LAYER_POINTER
