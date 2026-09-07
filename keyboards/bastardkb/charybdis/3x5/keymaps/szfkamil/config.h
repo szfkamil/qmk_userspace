@@ -57,3 +57,5 @@
 #define AUTO_MOUSE_DEFAULT_LAYER 4
 
 #define BK_POINTING_DEVICE_DRAGSCROLL_REVERSE_Y // inverts vertical scrolling
+// Optimized for ThinkPad T14 Ryzen 7 cold boot
+#define SPLIT_USB_TIMEOUT 5000
