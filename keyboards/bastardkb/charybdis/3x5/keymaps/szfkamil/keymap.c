@@ -45,8 +45,8 @@ enum charybdis_keymap_layers {
     LAYER_POINTER,
     LAYER_NUMERAL,
     LAYER_SYMBOLS,
+    LAYER_BUTTON
 };
-
 
 
 // Automatically enable sniping-mode on the pointer layer.
@@ -172,6 +172,17 @@ static uint16_t auto_pointer_layer_timer = 0;
     KC_TILD, KC_EXLM,   KC_AT, KC_HASH, KC_PIPE, _______________DEAD_HALF_ROW_______________, \
                       KC_LPRN, KC_RPRN, KC_UNDS, _______, XXXXXXX
 
+/*
+ * \brief Symmetrical button layer.
+ * Provides mouse buttons, mods, and clipboard keys for use with integrated or external pointing devices, used with either hand. 
+ * The layer is available for automatic activation.
+ */
+#define LAYOUT_LAYER_BUTTON \
+    KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, KC_AGAIN,   KC_AGAIN, KC_PASTE, KC_COPY, KC_CUT,  KC_UNDO, \
+    ______________HOME_ROW_GASC_L______________, ______________HOME_ROW_GASC_R______________, \
+    KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, KC_AGAIN,   KC_AGAIN, KC_PASTE, KC_COPY, KC_CUT,  KC_UNDO, \
+             MS_BTN2, _______, MS_BTN1,    _______, MS_BTN3
+
 /**
  * \brief Add Home Row mod to a layout.
  *
@@ -229,6 +240,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [LAYER_NUMERAL] = LAYOUT_wrapper(LAYOUT_LAYER_NUMERAL),
   [LAYER_POINTER] = LAYOUT_wrapper(LAYOUT_LAYER_POINTER),
   [LAYER_SYMBOLS] = LAYOUT_wrapper(LAYOUT_LAYER_SYMBOLS),
+  [LAYER_BUTTON]  = LAYOUT_wrapper(LAYOUT_LAYER_BUTTON),
+  
 };
 // clang-format on
 
@@ -261,6 +274,8 @@ void matrix_scan_user(void) {
 
 #    ifdef CHARYBDIS_AUTO_SNIPING_ON_LAYER
 layer_state_t layer_state_set_user(layer_state_t state) {
+    // Hold Left Thumb (NAV) + Right Thumb (NUM) to activate Button Layer (7)
+    state = update_tri_layer_state(state, LAYER_NAVIGATION, LAYER_NUMERAL, LAYER_BUTTON);
     return state;
 }
 #    endif // CHARYBDIS_AUTO_SNIPING_ON_LAYER
@@ -322,3 +337,4 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true; // Let QMK handle all other keycodes normally
 }
+
