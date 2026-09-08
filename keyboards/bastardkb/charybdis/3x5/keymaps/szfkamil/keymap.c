@@ -112,7 +112,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
     ______________HOME_ROW_GASC_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
     _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
-                      XXXXXXX, XXXXXXX, _______, XXXXXXX, XXXXXXX
+                     _______ , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
 
 /**
  * \brief Media layer.
@@ -124,7 +124,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
     KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, \
     DT_PRNT, DT_UP, DT_DOWN,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
-                      _______, KC_MPLY, KC_MSTP, KC_MSTP, KC_MPLY
+                      KC_MPLY, KC_MSTP, _______,  KC_MSTP, KC_MPLY
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
@@ -145,7 +145,7 @@ static uint16_t auto_pointer_layer_timer = 0;
     _______, _______, _______, _______, _______, KC_DEL, S(KC_INS), _______, _______, _______, \
     ______________HOME_ROW_GASC_L______________, KC_CAPS, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, \
     _______, KC_F14, _______, _______, _______, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  \
-                      XXXXXXX, _______, XXXXXXX,  KC_ENT,  KC_BSPC
+                      XXXXXXX, _______, XXXXXXX,  KC_ENT,  KC_TRNS
 /**
  * \brief Numeral layout.
  *
