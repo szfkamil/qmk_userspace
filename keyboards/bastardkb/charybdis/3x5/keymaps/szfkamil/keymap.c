@@ -93,7 +93,7 @@ static uint16_t auto_pointer_layer_timer = 0;
 #endif // !POINTING_DEVICE_ENABLE
 
 // clang-format off
-/** \brief QWERTY layout (3 rows, 10 columns). */
+/** \brief Colemak-DH layout (3 rows, 10 columns). */
 #define LAYOUT_LAYER_BASE                                                                     \
        KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, \
        KC_A,    KC_R,    KC_S,    KC_T,    KC_G,    KC_M,    KC_N,    KC_E,    KC_I, KC_O, \
