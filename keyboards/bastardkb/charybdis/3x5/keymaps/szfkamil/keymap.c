@@ -123,7 +123,7 @@ static uint16_t auto_pointer_layer_timer = 0;
  * from the base layer to enable auto-repeat.
  */
 #define LAYOUT_LAYER_FUNCTION                                                                 \
-    _______________DEAD_HALF_ROW_______________, KC_PSCR,   KC_F7,   KC_F8,   KC_F9,  KC_F12, \
+     KC_MAIL, XXXXXXX, KC_PSCR, A(KC_PSCR), S(KC_PSCR), XXXXXXX, KC_F7, KC_F8, KC_F9, KC_F12, \
     ______________HOME_ROW_GASC_L______________, KC_SCRL,   KC_F4,   KC_F5,   KC_F6,  KC_F11, \
     _______________DEAD_HALF_ROW_______________, KC_PAUS,   KC_F1,   KC_F2,   KC_F3,  KC_F10, \
                      _______ , XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX
@@ -135,16 +135,16 @@ static uint16_t auto_pointer_layer_timer = 0;
  * symmetrical to accomodate the left- and right-hand trackball.
  */
 #define LAYOUT_LAYER_MEDIA                                                                    \
-    XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, \
+    _______________DEAD_HALF_ROW_______________, _______________DEAD_HALF_ROW_______________,  \
     KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, KC_MPRV, KC_VOLD, KC_MUTE, KC_VOLU, KC_MNXT, \
     DT_PRNT, DT_UP, DT_DOWN,  EE_CLR, QK_BOOT, QK_BOOT,  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, \
                       KC_MPLY, KC_MSTP, _______,  KC_MSTP, KC_MPLY
 
 /** \brief Mouse emulation and pointer functions. */
 #define LAYOUT_LAYER_POINTER                                                                  \
-    XXXXXXX,  XXXXXXX, XXXXXXX, DPI_MOD, S_D_MOD, S_D_MOD, DPI_MOD, XXXXXXX,  XXXXXXX, XXXXXXX, \
+    XXXXXXX, XXXXXXX, DPI_MOD, DPI_RMOD, S_D_MOD, S_D_MOD, DPI_RMOD,  DPI_MOD, XXXXXXX, XXXXXXX, \
     ______________HOME_ROW_GASC_L______________, ______________HOME_ROW_GASC_R______________, \
-    _______, DRGSCRL, SNIPING, DRG_TOG, XXXXXXX, XXXXXXX, DRG_TOG, SNIPING, DRGSCRL, _______, \
+    _______, DRGSCRL, SNIPING, DRG_TOG, S_D_RMOD, S_D_RMOD, DRG_TOG, SNIPING, DRGSCRL, _______, \
                       MS_BTN2, MS_BTN1, MS_BTN3, MS_BTN3, MS_BTN1
 
 /**
@@ -156,8 +156,8 @@ static uint16_t auto_pointer_layer_timer = 0;
  * base layer to avoid having to layer change mid edit and to enable auto-repeat.
  */
 #define LAYOUT_LAYER_NAVIGATION \
-    _______, _______, _______, _______, _______, KC_DEL, S(KC_INS), _______, _______, _______, \
-    ______________HOME_ROW_GASC_L______________, KC_CAPS, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, \
+    _______, _______, _______, _______, _______, KC_DEL, S(KC_INS), KC_CAPS, _______, _______, \
+    ______________HOME_ROW_GASC_L______________, KC_TAB, KC_LEFT, KC_DOWN,   KC_UP, KC_RGHT, \
     _______, KC_F14, _______, _______, _______, KC_INS,  KC_HOME, KC_PGDN, KC_PGUP, KC_END,  \
                       XXXXXXX, _______, XXXXXXX,  KC_ENT,  KC_TRNS
 /**
@@ -190,11 +190,12 @@ static uint16_t auto_pointer_layer_timer = 0;
  * \brief Symmetrical button layer.
  * Provides mouse buttons, mods, and clipboard keys for use with integrated or external pointing devices, used with either hand. 
  * The layer is available for automatic activation.
+ * I found KC_PASTE to work reliaby in my env and it allows me to paste in GUI apps as well as the terminal with one key.
  */
 #define LAYOUT_LAYER_BUTTON \
-    KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, KC_AGAIN,   KC_AGAIN, KC_PASTE, KC_COPY, KC_CUT,  KC_UNDO, \
-    ______________HOME_ROW_GASC_L______________, ______________HOME_ROW_GASC_R______________, \
-    KC_UNDO, KC_CUT,  KC_COPY, KC_PASTE, KC_AGAIN,   KC_AGAIN, KC_PASTE, KC_COPY, KC_CUT,  KC_UNDO, \
+    C(KC_Z), C(KC_X),  C(KC_C), KC_PASTE, C(S(KC_Z)),   C(S(KC_Z)), KC_PASTE, C(KC_C), C(KC_X),  C(KC_Z), \
+    ______________HOME_ROW_GASC_L______________,        ______________HOME_ROW_GASC_R______________,       \
+    C(KC_Z), C(KC_X),  C(KC_C), KC_PASTE, C(S(KC_Z)),   C(S(KC_Z)), KC_PASTE, C(KC_C), C(KC_X),  C(KC_Z), \
              MS_BTN2, _______, MS_BTN1,    _______, MS_BTN3
 
 /**
@@ -258,6 +259,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
 };
 // clang-format on
+
+
 
 #ifdef POINTING_DEVICE_ENABLE
 #    ifdef CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
