@@ -21,20 +21,34 @@
 #endif // CHARYBDIS_AUTO_POINTER_LAYER_TRIGGER_ENABLE
 
 // ==========================================
+// TAP DANCE
+// ==========================================
+enum { 
+    TD_Q_QUIT,
+};
+
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_Q_QUIT] = ACTION_TAP_DANCE_DOUBLE(KC_Q, A(KC_W)),
+};
+
+// ==========================================
+
+
+// ==========================================
 // PLACE YOUR COMBOS HERE
 // Reference: https://docs.qmk.fm/features/combo#combos
 // ==========================================
+
 enum combos {
     CMB_TAB
 };
-
-const uint16_t PROGMEM tab_combo[] = {KC_Q, KC_W, COMBO_END};
+/*
+const uint16_t PROGMEM tab_combo[] = {TD(TD_Q_QUIT), KC_W, COMBO_END};
 
 combo_t key_combos[] = {
     [CMB_TAB] = COMBO(tab_combo, KC_TAB)
 };
-// ==========================================
-
+*/
 // Your layer definitions
 
 enum charybdis_keymap_layers {
