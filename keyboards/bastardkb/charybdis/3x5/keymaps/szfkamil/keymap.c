@@ -307,8 +307,10 @@ void keyboard_post_init_user(void) {
 
     // Turns on sniping mode automatically when mouse layer is enabled
     bkpd_set_auto_precision_on_mouse_layer_enabled(false);
-
-
+    // Safely cycle to specified DPI if not already set
+    while (bkpd_get_pointer_default_dpi() != 800) {
+        bkpd_cycle_pointer_default_dpi(true);
+    }
 }
 // Argos relies on via so disabling it in rules.mk does not work.
 // BOOTMAGIC causes issues with auto mouse layer (microcontroller enters bootloader mode ad-hod if enabled

@@ -42,12 +42,11 @@
 #endif // POINTING_DEVICE_ENABLE
 
 /* Tapping term */
-#define TAPPING_TERM 300
+#define TAPPING_TERM 200
 #define TAPPING_TERM_PER_KEY
 #define DYNAMIC_TAPPING_TERM_INCREMENT 10
 #define PERMISSIVE_HOLD
 #define COMBO_TERM 40
-
 /*RGB*/
 #define LED_DPI_INDICATOR_INDEX 0
 /* Bypass bug in bstiq beta */
@@ -60,3 +59,5 @@
 #define BK_POINTING_DEVICE_DRAGSCROLL_REVERSE_Y // inverts vertical scrolling
 // Optimized for ThinkPad T14 Ryzen 7 cold boot
 #define SPLIT_USB_TIMEOUT 5000
+
+#define COMBO_ALLOW_ACTION_KEYS
